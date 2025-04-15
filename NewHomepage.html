@@ -91,6 +91,12 @@
             color: white;
         }
 
+        .mb-reconquete-section {
+            background: linear-gradient(rgba(11, 61, 145, 0.85), rgba(11, 61, 145, 0.9)), url('https://assets.nationbuilder.com/marcbelanger/pages/3/attachments/original/1744704273/flag-quebec-51993.jpg?1744704273') no-repeat center center/cover;
+            background-attachment: fixed;
+            color: white;
+        }
+
         .mb-section-header {
             text-align: center;
             margin-bottom: 40px;
@@ -150,6 +156,7 @@
         }
 
         .mb-quote {
+            display: inline-block;
             font-size: 1.5rem;
             line-height: 1.8;
             color: var(--mb-primary-color);
@@ -163,7 +170,6 @@
         .mb-quote::after {
             content: '"';
             font-size: 4rem;
-            color: var(--mb-accent-color);
             position: absolute;
             opacity: 0.3;
         }
@@ -176,6 +182,21 @@
         .mb-quote::after {
             bottom: -40px;
             right: 0;
+            content: '"';
+        }
+
+        /* Quote marks color for normal sections (blue) */
+        #vision .mb-quote::before,
+        #vision .mb-quote::after {
+            color: var(--mb-primary-color);
+        }
+
+        /* Quote marks color for accent/white sections */
+        .mb-section-accent .mb-quote::before,
+        .mb-section-accent .mb-quote::after,
+        .mb-cta .mb-quote::before,
+        .mb-cta .mb-quote::after {
+            color: white;
         }
 
         .mb-cta {
@@ -184,6 +205,7 @@
             text-align: center;
             padding: 100px 0;
             position: relative;
+            overflow: hidden;
         }
 
         .mb-cta .mb-container {
@@ -284,6 +306,62 @@
             object-fit: cover;
         }
 
+        .mb-section-action {
+            padding: 60px 0;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .mb-action-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .mb-action-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .mb-action-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            min-width: 300px;
+        }
+
+        .mb-action-subtitle {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            color: var(--mb-primary-color);
+        }
+
+        .mb-action-subtitle:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background-color: var(--mb-secondary-color);
+        }
+
+        .mb-btn-outline-dark {
+            background-color: transparent;
+            color: var(--mb-primary-color);
+            border: 2px solid var(--mb-primary-color);
+        }
+
+        .mb-btn-outline-dark:hover {
+            background-color: var(--mb-primary-color);
+            color: white;
+        }
+
         @media (max-width: 768px) {
             .mb-header {
                 padding: 80px 0;
@@ -304,6 +382,50 @@
             .mb-two-cols {
                 grid-template-columns: 1fr;
             }
+            
+            .mb-reconquete-section {
+                background-attachment: scroll;
+            }
+
+            .mb-action-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .mb-action-subtitle:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .mb-action-buttons {
+                width: 100%;
+            }
+            
+            .mb-cta {
+                padding: 60px 0;
+                height: auto;
+            }
+            
+            #youtube-background {
+                height: 120%;
+                width: 120%;
+            }
+            
+            .mb-section-title {
+                font-size: 1.8rem;
+            }
+            
+            .mb-cta-title {
+                font-size: 1.8rem;
+            }
+            
+            .mb-action-subtitle {
+                font-size: 1.6rem;
+            }
+            
+            .mb-quote {
+                font-size: 1.3rem;
+            }
         }
     </style>
 </head>
@@ -312,7 +434,7 @@
     <div id="vision" class="mb-section pt-0">
         <div class="mb-container">
             <div class="mb-section-header">
-                <h2 class="mb-section-title">Notre Vision</h2>
+                <h2 class="mb-section-title">Le Qu&eacute;bec m&eacute;rite d'&ecirc;tre entendu.</h2>
             </div>
             <div class="mb-accent-box">
                 <p><strong>Et si on &eacute;coutait vraiment ?</strong></p>
@@ -325,29 +447,21 @@
                     Qu&eacute;bec</strong>. De redonner &agrave; chaque r&eacute;gion, chaque citoyen, une voix forte,
                 une voix respect&eacute;e. Parce que ce combat, ce n'est pas seulement de la politique. Ce combat, c'est
                 <em>vous</em>. Vos espoirs, vos d&eacute;fis, votre avenir.</p>
-            <div class="mb-quote">Marc B&eacute;langer croit que l'avenir du Qu&eacute;bec appartient &agrave; ceux qui
-                agissent par conviction.</div>
+            <div class="mb-quote">Marc B&eacute;langer croit que <strong>l'avenir du Qu&eacute;bec appartient &agrave; ceux qui
+                agissent par conviction</strong>.</div>
             <p>Il sait que le Qu&eacute;bec est plus fort quand <strong>chaque r&eacute;gion est valoris&eacute;e, quand
                     chaque voix compte</strong>. Ensemble, sans divisions, nous allons construire un Qu&eacute;bec
                 <strong>ouvert, ambitieux et fier</strong>.</p>
         </div>
     </div>
-    <div id="rejoindre" class="mb-section mb-cta">
-        <div class="mb-youtube-background">
-            <iframe id="youtube-background" src="https://www.youtube.com/embed/9VsEAEX6C9Q?si=HQfi-6se6GWVo7sg&autoplay=1&mute=1&controls=0&showinfo=0&loop=1&playlist=9VsEAEX6C9Q&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
+    <div id="reconquete" class="mb-section mb-section-accent mb-reconquete-section">
         <div class="mb-container">
-            <h2 class="mb-cta-title">Passons &agrave; l'action, Ensemble</h2>
-            <p class="mb-quote" style="color: white;">Nous avons besoin de vous.</p>
-            <p>Rejoignez Marc B&eacute;langer et des milliers d'autres Qu&eacute;b&eacute;cois qui croient qu'un
-                Qu&eacute;bec fort et uni est possible. Un Qu&eacute;bec o&ugrave; <strong>chaque citoyen a sa
-                    place</strong>, o&ugrave; <strong>chaque r&eacute;gion compte</strong>, et o&ugrave; <strong>chaque
-                    espoir peut devenir r&eacute;alit&eacute;</strong>.</p>
-            <p>Ensemble, nous allons reconnecter le Qu&eacute;bec. Ensemble, nous allons agir par conviction.</p>
-            <div class="mb-actions"><a class="mb-btn mb-btn-white" href="https://www.marcbelanger.quebec/membre">Faites
-                    partie du Qu&eacute;bec que vous m&eacute;ritez</a> <a class="mb-btn mb-btn-outline"
-                    href="https://www.marcbelanger.quebec/benevoles">Rejoignez le mouvement pour un Qu&eacute;bec
-                    audacieux</a></div>
+            <div class="mb-section-header">
+                <h2 class="mb-section-title">La reconqu&ecirc;te est en marche.</h2>
+            </div>
+            <p>Ce n'est pas juste un slogan. C'est un appel. C'est un retour aux sources. C'est renouer avec ce qui fait notre force et notre fiert&eacute;. C'est &eacute;couter, et comprendre <strong>les gens d'ici</strong>, notre histoire, notre culture unique. C'est affirmer que <strong>chaque r&eacute;gion compte, chaque voix compte, chaque id&eacute;e compte</strong>.</p>
+            <div class="mb-quote" style="color: white;">La reconqu&ecirc;te, c'est <strong>revenir &agrave; l'essentiel</strong> : un Qu&eacute;bec o&ugrave; les d&eacute;cisions sont prises pour les gens, par les gens, et avec les gens.</div>
+            <p>Un Qu&eacute;bec o&ugrave; <strong>personne n'est oubli&eacute;, o&ugrave; nos r&eacute;gions sont notre richesse, et o&ugrave; notre diversit&eacute; est notre plus grand atout</strong>.</p>
         </div>
     </div>
     <div id="ensemble" class="mb-section">
@@ -373,8 +487,37 @@
                         r&ecirc;ve d'un Qu&eacute;bec <strong>audacieux et tourn&eacute; vers l'avenir</strong>, un
                         Qu&eacute;bec qui prend sa place sur la sc&egrave;ne internationale sans jamais sacrifier son
                         &acirc;me.</p>
-                    <a class="mb-btn mb-btn-action" href="https://www.marcbelanger.quebec/bio">D&eacute;couvrez le
-                        parcours de Marc B&eacute;langer</a>
+                    <a class="mb-btn mb-btn-action" href="https://www.marcbelanger.quebec/bio"><strong>D&eacute;couvrez le
+                        parcours de Marc B&eacute;langer</strong></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="rejoindre" class="mb-section mb-cta">
+        <div class="mb-youtube-background">
+            <iframe id="youtube-background" src="https://www.youtube.com/embed/9VsEAEX6C9Q?si=HQfi-6se6GWVo7sg&autoplay=1&mute=1&controls=0&showinfo=0&loop=1&playlist=9VsEAEX6C9Q&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <div class="mb-container">
+            <h2 class="mb-cta-title">Passons &agrave; l'action, Ensemble</h2>
+            <p class="mb-quote" style="color: white;"><strong>Nous avons besoin de vous.</strong></p>
+        </div>
+    </div>
+    <div class="mb-section mb-section-action" style="background-color: white; color: var(--mb-dark-color);">
+        <div class="mb-container">
+            <div class="mb-action-content">
+                <div class="mb-action-text">
+                    <h3 class="mb-action-subtitle">Rejoignez le mouvement</h3>
+                    <p>Rejoignez Marc B&eacute;langer et des milliers d'autres Qu&eacute;b&eacute;cois qui croient qu'un
+                        Qu&eacute;bec fort et uni est possible. Un Qu&eacute;bec o&ugrave; <strong>chaque citoyen a sa
+                            place</strong>, o&ugrave; <strong>chaque r&eacute;gion compte</strong>, et o&ugrave; <strong>chaque
+                            espoir peut devenir r&eacute;alit&eacute;</strong>.</p>
+                    <p>Ensemble, nous allons reconnecter le Qu&eacute;bec. Ensemble, nous allons agir par conviction.</p>
+                </div>
+                <div class="mb-action-buttons">
+                    <a class="mb-btn" href="https://www.marcbelanger.quebec/membre"><strong>Faites
+                            partie du Qu&eacute;bec que vous m&eacute;ritez</strong></a> 
+                    <a class="mb-btn mb-btn-outline-dark" href="https://www.marcbelanger.quebec/benevoles"><strong>Rejoignez le mouvement pour un Qu&eacute;bec
+                            audacieux</strong></a>
                 </div>
             </div>
         </div>
