@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marc Bélanger | Pour un Québec qui mérite d'être entendu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --mb-primary-color: #0B3D91;
+            --mb-secondary-color: #D10024;
+            --mb-accent-color: #FFD700;
+            --mb-dark-color: #212529;
+            --mb-light-color: #F8F9FA;
+        }
+        
+        .mb-reset * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        .mb-main {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--mb-dark-color);
+            background-color: var(--mb-light-color);
+        }
+        
+        .mb-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .mb-header {
+            background: linear-gradient(rgba(11, 61, 145, 0.9), rgba(11, 61, 145, 0.9)), url('https://placehold.co/1200x600/0B3D91/FFFFFF?text=Banner+Image') no-repeat center center/cover;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+        
+        .mb-header-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .mb-header-subtitle {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .mb-btn {
+            display: inline-block;
+            background-color: var(--mb-secondary-color);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            margin: 10px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--mb-secondary-color);
+        }
+        
+        .mb-btn:hover {
+            background-color: transparent;
+            color: white;
+        }
+        
+        .mb-btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+        
+        .mb-btn-outline:hover {
+            background-color: white;
+            color: var(--mb-primary-color);
+        }
+        
+        .mb-section {
+            padding: 80px 0;
+        }
+        
+        .mb-section-accent {
+            background-color: var(--mb-primary-color);
+            color: white;
+        }
+        
+        .mb-section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .mb-section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--mb-primary-color);
+            display: inline-block;
+            border-bottom: 4px solid var(--mb-secondary-color);
+            padding-bottom: 10px;
+        }
+        
+        .mb-section-accent .mb-section-title {
+            color: white;
+            border-bottom-color: var(--mb-accent-color);
+        }
+        
+        .mb-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .mb-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .mb-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .mb-card-img {
+            height: 200px;
+            background: url('https://placehold.co/600x400/0B3D91/FFFFFF?text=Image') no-repeat center center/cover;
+        }
+        
+        .mb-card-content {
+            padding: 30px;
+        }
+        
+        .mb-card-title {
+            color: var(--mb-primary-color);
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .mb-accent-box {
+            background-color: rgba(11, 61, 145, 0.05);
+            border-left: 5px solid var(--mb-primary-color);
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .mb-quote {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            color: var(--mb-primary-color);
+            font-style: italic;
+            position: relative;
+            padding: 20px 40px;
+            margin: 40px 0;
+        }
+        
+        .mb-quote::before, .mb-quote::after {
+            content: '"';
+            font-size: 4rem;
+            color: var(--mb-accent-color);
+            position: absolute;
+            opacity: 0.3;
+        }
+        
+        .mb-quote::before {
+            top: -20px;
+            left: 0;
+        }
+        
+        .mb-quote::after {
+            bottom: -40px;
+            right: 0;
+        }
+        
+        .mb-cta {
+            background: linear-gradient(rgba(209, 0, 36, 0.9), rgba(209, 0, 36, 0.9)), url('https://placehold.co/1200x600/D10024/FFFFFF?text=CTA+Background') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .mb-cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .mb-footer {
+            background-color: var(--mb-dark-color);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+        
+        .mb-social-links {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .mb-social-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin: 0 10px;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .mb-social-link:hover {
+            background-color: var(--mb-secondary-color);
+        }
+        
+        .mb-copyright {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .mb-profile-img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .mb-btn-action {
+            margin-left: 0;
+            margin-top: 20px;
+        }
+        
+        .mb-btn-white {
+            background-color: white;
+            color: var(--mb-secondary-color);
+            border-color: white;
+        }
+        
+        .mb-actions {
+            margin-top: 40px;
+        }
+        
+        .mb-logo {
+            margin-bottom: 20px;
+        }
+        
+        .mb-two-cols {
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        @media (max-width: 768px) {
+            .mb-header {
+                padding: 80px 0;
+            }
+            
+            .mb-header-title {
+                font-size: 2.5rem;
+            }
+            
+            .mb-header-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .mb-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .mb-two-cols {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="mb-reset mb-main">
+    <header class="mb-header">
+        <div class="mb-container">
+            <h1 class="mb-header-title">Le Québec mérite d'être entendu.</h1>
+            <p class="mb-header-subtitle">Avec Marc Bélanger, chaque citoyen, chaque région retrouvera sa voix.</p>
+            <div>
+                <a href="#vision" class="mb-btn">Notre vision</a>
+                <a href="#rejoindre" class="mb-btn mb-btn-outline">Rejoignez-nous</a>
+            </div>
+        </div>
+    </header>
+    
+    <section id="vision" class="mb-section">
+        <div class="mb-container">
+            <div class="mb-section-header">
+                <h2 class="mb-section-title">Notre Vision</h2>
+            </div>
+            <div class="mb-accent-box">
+                <p><strong>Et si on écoutait vraiment ?</strong></p>
+                <p><strong>Et si chaque citoyen, chaque région, retrouvait sa voix ?</strong></p>
+                <p><strong>Et si on bâtissait ensemble un Québec où personne n'est oublié ?</strong></p>
+            </div>
+            
+            <p>Pendant trop longtemps, on vous a parlé sans vraiment vous écouter. Il est temps de changer ça. Avec Marc Bélanger, nous avons l'opportunité de <strong>reconnecter le Québec</strong>. De redonner à chaque région, chaque citoyen, une voix forte, une voix respectée. Parce que ce combat, ce n'est pas seulement de la politique. Ce combat, c'est <em>vous</em>. Vos espoirs, vos défis, votre avenir.</p>
+            
+            <div class="mb-quote">
+                Marc Bélanger croit que l'avenir du Québec appartient à ceux qui agissent par conviction.
+            </div>
+            
+            <p>Il sait que le Québec est plus fort quand <strong>chaque région est valorisée, quand chaque voix compte</strong>. Ensemble, sans divisions, nous allons construire un Québec <strong>ouvert, ambitieux et fier</strong>.</p>
+        </div>
+    </section>
+    
+    <section class="mb-section mb-section-accent" id="reconquete">
+        <div class="mb-container">
+            <div class="mb-section-header">
+                <h2 class="mb-section-title">La reconquête est en marche.</h2>
+            </div>
+            
+            <div class="mb-grid">
+                <div class="mb-card">
+                    <div class="mb-card-img" style="background-image: url('https://placehold.co/600x400/FFFFFF/0B3D91?text=Notre+Histoire')"></div>
+                    <div class="mb-card-content">
+                        <h3 class="mb-card-title">Notre héritage</h3>
+                        <p>Ce n'est pas juste un slogan. C'est un appel. C'est un retour aux sources. C'est renouer avec ce qui fait notre force et notre fierté. C'est écouter, et comprendre <strong>les gens d'ici</strong>, notre histoire, notre culture unique.</p>
+                    </div>
+                </div>
+                
+                <div class="mb-card">
+                    <div class="mb-card-img" style="background-image: url('https://placehold.co/600x400/FFFFFF/0B3D91?text=Nos+Régions')"></div>
+                    <div class="mb-card-content">
+                        <h3 class="mb-card-title">Nos régions</h3>
+                        <p>C'est affirmer que <strong>chaque région compte, chaque voix compte, chaque idée compte</strong>. La reconquête, c'est <strong>revenir à l'essentiel</strong> : un Québec où les décisions sont prises pour les gens, par les gens, et avec les gens.</p>
+                    </div>
+                </div>
+                
+                <div class="mb-card">
+                    <div class="mb-card-img" style="background-image: url('https://placehold.co/600x400/FFFFFF/0B3D91?text=Notre+Diversité')"></div>
+                    <div class="mb-card-content">
+                        <h3 class="mb-card-title">Notre diversité</h3>
+                        <p>Un Québec où <strong>personne n'est oublié, où nos régions sont notre richesse, et où notre diversité est notre plus grand atout</strong>. Ensemble, nous construirons un Québec qui nous ressemble.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="ensemble" class="mb-section">
+        <div class="mb-container">
+            <div class="mb-section-header">
+                <h2 class="mb-section-title">Un Québec pour vous, un Québec avec vous.</h2>
+            </div>
+            
+            <div class="mb-grid mb-two-cols">
+                <div>
+                    <img src="https://placehold.co/600x800/0B3D91/FFFFFF?text=Marc+Bélanger" alt="Marc Bélanger" class="mb-profile-img">
+                </div>
+                <div>
+                    <p>Ce n'est pas seulement la campagne de Marc Bélanger. C'est <strong>votre campagne, notre campagne</strong>. Ensemble, nous avons le pouvoir de bâtir un Québec qui nous ressemble, un Québec où <strong>les voix des citoyens résonnent plus fort que les promesses vides des politiciens</strong>.</p>
+                    
+                    <div class="mb-accent-box">
+                        <p>C'est le moment de se lever, de s'unir, et d'agir pour un Québec qui regarde l'avenir avec confiance.</p>
+                    </div>
+                    
+                    <p>Marc veut un Québec <strong>prêt à relever les défis mondiaux</strong>, tout en restant ancré dans ses valeurs et ses racines. Il rêve d'un Québec <strong>audacieux et tourné vers l'avenir</strong>, un Québec qui prend sa place sur la scène internationale sans jamais sacrifier son âme.</p>
+                    
+                    <a href="https://www.marcbelanger.quebec/bio" class="mb-btn mb-btn-action">Découvrez le parcours de Marc Bélanger</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="mb-section mb-cta" id="rejoindre">
+        <div class="mb-container">
+            <h2 class="mb-cta-title">Passons à l'action, Ensemble</h2>
+            <p class="mb-quote" style="color: white;">Nous avons besoin de vous.</p>
+            <p>Rejoignez Marc Bélanger et des milliers d'autres Québécois qui croient qu'un Québec fort et uni est possible. Un Québec où <strong>chaque citoyen a sa place</strong>, où <strong>chaque région compte</strong>, et où <strong>chaque espoir peut devenir réalité</strong>.</p>
+            <p>Ensemble, nous allons reconnecter le Québec. Ensemble, nous allons agir par conviction.</p>
+            
+            <div class="mb-actions">
+                <a href="https://www.marcbelanger.quebec/membre" class="mb-btn mb-btn-white">Faites partie du Québec que vous méritez</a>
+                <a href="https://www.marcbelanger.quebec/benevoles" class="mb-btn mb-btn-outline">Rejoignez le mouvement pour un Québec audacieux</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="mb-footer">
+        <div class="mb-container">
+            <img src="https://placehold.co/200x80/FFFFFF/0B3D91?text=Logo" alt="Marc Bélanger Logo" class="mb-logo">
+            
+            <div class="mb-social-links">
+                <a href="#" class="mb-social-link" aria-label="Facebook">f</a>
+                <a href="#" class="mb-social-link" aria-label="Twitter">t</a>
+                <a href="#" class="mb-social-link" aria-label="Instagram">i</a>
+                <a href="#" class="mb-social-link" aria-label="YouTube">y</a>
+            </div>
+            
+            <p class="mb-copyright">&copy; 2023 Marc Bélanger. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>
