@@ -92,10 +92,10 @@
           {% form_for pledge %}
   
             {% if request.sorta_logged_in? %}
-              {% include "form_greeting" greeting: "will you pledge?" %}
+              {% include "form_greeting" greeting: "souhaitez-vous faire une promesse de don?" %}
             {% endif %}
   
-            <h2 class="h5">How much will you pledge to donate{% if page.moneybomb.has_start_at? %} on {{ page.moneybomb.local_start_at | moneybomb_time }}{% endif %}?</h2>
+            <h2 class="h5">Quel montant souhaitez-vous promettre de donner à{% if page.moneybomb.has_start_at? %} {{ page.moneybomb.local_start_at | moneybomb_time }}{% endif %}?</h2>
   
             <div class="form-errors">
               {% error_messages_for pledge %}
@@ -167,7 +167,7 @@
             {% if request.sorta_logged_in? == false or request.current_signup.has_full_address? == false %}
               <div class="form-group">
                 <div class="form-control-material">
-                  <label for="pledge_submitted_address" class="floating-label floating-label--float-above">Address (Street, City, State, Zip)</label>
+                  <label for="pledge_submitted_address" class="floating-label floating-label--float-above">Adresse (Rue, Ville, Province, Code postal)</label>
                   {% text_field "submitted_address", class:"form-control text" %}
                 </div>
               </div>
@@ -186,7 +186,7 @@
               <div class="form-group">
                 <div class="custom-control custom-checkbox">
                   {% check_box "is_volunteer", class:"custom-control-input checkbox" %}
-                  <label class="custom-control-label checkbox" for="pledge_is_volunteer">I want to volunteer</label>
+                  <label class="custom-control-label checkbox" for="pledge_is_volunteer">Je veux être bénévole</label>
                 </div>
               </div>
             {% endif %}
@@ -197,7 +197,7 @@
               {% include "consent_form" %}
             {% endif %}
   
-            {% submit_tag "Add pledge", class:"btn btn-primary submit-button" %}
+            {% submit_tag "Soumettre ma promesse de don", class:"btn btn-primary submit-button" %}
             <div class="form-submit"></div>
   
             {% if page.text_keyword_instructions.size > 0 %}
