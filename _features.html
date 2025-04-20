@@ -28,6 +28,15 @@
           <div class="carousel-item {% if forloop.first %}active{% endif %}">
             <a href="{{ feature.page.url }}" class="d-block position-relative h-100">
               <img src="{{ feature.image_url }}" class="d-block w-100 h-100" height="{{ feature.image_height }}" width="{{ feature.image_width }}"/>
+              
+              <!-- Overlay div -->
+              <div class="feature-overlay"></div>
+              
+              <div class="nectar-shape-divider-wrap" style="height:50px;" data-height="50" data-style="curve" data-position="bottom">
+                <svg class="nectar-shape-divider" aria-hidden="true" fill="#ffffff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+                  <path d="M 0 0 c 0 0 200 50 500 50 s 500 -50 500 -50 v 101 h -1000 v -100 z"></path>
+                </svg>
+              </div>
 
               {% if feature.headline.size > 0 %}
                 {% assign components = feature.headline | split:"|" %}
@@ -72,6 +81,64 @@
         objectFitImages('#{{ id | default: "page-features" }} .carousel-item img');
       })();
     </script>
+
+    <style>
+      .nectar-shape-divider-wrap {
+        position: absolute;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 50px;
+        z-index: 3;
+        transform: translateZ(0);
+      }
+      
+      .nectar-shape-divider {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 3;
+        line-height: 0;
+      }
+
+      .feature-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%; /* Cover full height including curve */
+        background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent black overlay */
+        z-index: 2;
+        clip-path: polygon(0 0, 100% 0, 100% calc(100% - 50px), 75% 100%, 25% 100%, 0 calc(100% - 50px)); /* Approximate curve shape */
+      }
+      
+      /* For browsers that don't support clip-path */
+      @supports not (clip-path: polygon(0 0)) {
+        .feature-overlay {
+          height: calc(100% - 50px);
+        }
+        
+        .feature-overlay::after {
+          content: "";
+          position: absolute;
+          bottom: -50px;
+          left: 0;
+          width: 100%;
+          height: 50px;
+          background-color: rgba(0, 0, 0, 0.3);
+          mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 100' preserveAspectRatio='none'%3E%3Cpath d='M 0 0 c 0 0 200 50 500 50 s 500 -50 500 -50 v 101 h -1000 v -100 z'%3E%3C/path%3E%3C/svg%3E");
+          -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 100' preserveAspectRatio='none'%3E%3Cpath d='M 0 0 c 0 0 200 50 500 50 s 500 -50 500 -50 v 101 h -1000 v -100 z'%3E%3C/path%3E%3C/svg%3E");
+          mask-size: 100% 100%;
+          -webkit-mask-size: 100% 100%;
+        }
+      }
+    </style>
 
     <script src="adjust-features.js"></script>
     
